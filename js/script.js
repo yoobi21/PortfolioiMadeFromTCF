@@ -11,7 +11,23 @@
  *
  * Date: 2020-05-04T22:49Z
  */
+window.addEventListener("load", () => {
+	// (PART A) GET BGM
+	const bgm = document.getElementByClassName("bgm");
+  
+	// (PART B) AUTOPLAY NOT ALLOWED - SHOW "PLAY BUTTON"
+	if (bgm.paused) {
+	  // (B1) GET "PLAY BUTTON"
+	  let play = document.getElementByClassName("app-icon trash");
+  
+	  // (B2) CLICK TO PLAY
+	  play.onclick = () => {
+		bgm.play();
+	  };
+  
 
+	}
+  });
 
 
 ( function( global, factory ) {
@@ -29594,6 +29610,7 @@ $(function() {
     var $noise = $(".noise");
     var resize = false;
 
+	
     $apps.hide()
     $login.hide()
     $info.hide()
@@ -29602,6 +29619,8 @@ $(function() {
     $monitor.on("click", function() {
         var $this = $(this);
         $(".fa-hand-o-down").fadeOut(1000)
+		var audio = document.getElementById("bgm");
+		audio.play();
         $desktop.show()
         $room.addClass("zoom-out");
         $grid.fadeIn(500)
@@ -29609,6 +29628,7 @@ $(function() {
         $info.fadeIn(500)
         $noise.fadeIn(500)
         $desktop.addClass("zoom")
+		
     });
 
     function resizeRoom() {
