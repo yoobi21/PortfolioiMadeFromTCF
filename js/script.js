@@ -11,7 +11,7 @@
  *
  * Date: 2020-05-04T22:49Z
  */
-
+var audio = document.getElementById("bgm");
 
 ( function( global, factory ) {
 
@@ -29591,34 +29591,36 @@ $(function() {
     var $wrap = $('.interactive-wrap');
     var $monitor = $(".monitor");
     var $noise = $(".noise");
+	var $text = $(".csong");
     var resize = false;
 
-	
+	$text.hide()
     $apps.hide()
     $login.hide()
     $info.hide()
     $wallpaper.hide()
 
+
     $monitor.on("click", function() {
         var $this = $(this);
         $(".fa-hand-o-down").fadeOut(1000)
-		var audio = document.getElementById("bgm");
 		audio.play();
+		isPlaying = true;
         $desktop.show()
         $room.addClass("zoom-out");
+		$text.fadeIn(500)
         $grid.fadeIn(500)
         $apps.fadeIn(500)
         $info.fadeIn(500)
         $noise.fadeIn(500)
+		
         $desktop.addClass("zoom")
 		
     });
+
 	
-var isPlaying
-	if(isPlaying) 
-		{ audio.pause(); isPlaying = false; }
-		else
-		 { audio.play(); isPlaying = true;} 
+	
+
 		
 	
 
@@ -29720,6 +29722,7 @@ $(function() {
 
 	var $awards = $(".fa-trophy");
 	var $awardsExplorer = $(".explorer-window.awards-explorer");
+	var $text =$(".csong");
 
 	function bindExplorer($explorer) {
 		$explorer.addClass("visible")
@@ -29819,6 +29822,7 @@ $(function() {
 	}
 
 	$trash.on("click", function() {
+		
 		bindExplorer($trashExplorer);
 	})
 
@@ -29851,10 +29855,11 @@ $(function() {
 			$logoMenu.addClass("open");
 		}
 	})
-
+	
 	$shutdown.on("click", function() {
 		var delay = 0;
-
+		audio.pause();
+		$text.fadeOut(500);
 		$(".explorer-window").each(function() {
 			if ($(this).hasClass("visible")) {
 				unbindExplorer($(this))
@@ -29946,7 +29951,3 @@ gtag('js', new Date());
 
 gtag('config', 'UA-118887921-1');
 
-document.addEventListener("contextmenu", function(event){
-	alert("EITS TIDAK BISA😜")
-	event.preventDefault();
-})
