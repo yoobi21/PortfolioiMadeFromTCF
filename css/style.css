@@ -4787,6 +4787,7 @@ body .ui-tooltip {
 }
 
 .tcf-logo {
+	border-radius: 9%;
 	position: fixed;
 	top: calc(50% - 69px);
 	left: calc(50% - 64.5px);
@@ -4855,7 +4856,7 @@ body .ui-tooltip {
 }
 
 .room.ie.zoom-out .room-gif {
-	border-bottom: 0;
+	border-radius: 0;
 }
 
 .room.ie .room-gif {
@@ -5104,7 +5105,6 @@ body,html {
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: url(../img/screenGrid.png) repeat;
 	z-index: 3;
 	pointer-events: none;
 	display: none;
@@ -5155,7 +5155,16 @@ body,html {
 	height: 100%;
 	overflow: hidden;
 	z-index: 3;
-	border: 35px #141414 solid;
+	border: 35px #fffafa solid;
+
+}
+.csong {
+	font-style: italic;
+	color: rgba(0, 0, 0, 0.959);
+	position: absolute;
+	z-index: 5;
+	font-size: 140%;		
+	
 }
 
 @media (max-width:1100px) {
@@ -5742,4 +5751,10 @@ body,html {
 .ui-widget-header .ui-icon {
 	background-image: url(../img/ui-icons_444444_256x240.png)!important;
 }
+
+
+
+
+
+
 

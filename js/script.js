@@ -11,23 +11,6 @@
  *
  * Date: 2020-05-04T22:49Z
  */
-window.addEventListener("load", () => {
-	// (PART A) GET BGM
-	const bgm = document.getElementByClassName("bgm");
-  
-	// (PART B) AUTOPLAY NOT ALLOWED - SHOW "PLAY BUTTON"
-	if (bgm.paused) {
-	  // (B1) GET "PLAY BUTTON"
-	  let play = document.getElementByClassName("app-icon trash");
-  
-	  // (B2) CLICK TO PLAY
-	  play.onclick = () => {
-		bgm.play();
-	  };
-  
-
-	}
-  });
 
 
 ( function( global, factory ) {
@@ -29630,6 +29613,14 @@ $(function() {
         $desktop.addClass("zoom")
 		
     });
+	
+var isPlaying
+	if(isPlaying) 
+		{ audio.pause(); isPlaying = false; }
+		else
+		 { audio.play(); isPlaying = true;} 
+		
+	
 
     function resizeRoom() {
         if (!window.jqueryResizeActive && detectIE()) {
@@ -29955,3 +29946,7 @@ gtag('js', new Date());
 
 gtag('config', 'UA-118887921-1');
 
+document.addEventListener("contextmenu", function(event){
+	alert("EITS TIDAK BISA😜")
+	event.preventDefault();
+})
